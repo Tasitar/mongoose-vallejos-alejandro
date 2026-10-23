@@ -4,6 +4,7 @@ import { startDB } from "./src/config/database.js"
 import { userRoutes } from "./src/routers/user.routes.js"
 import { personRoutes } from "./src/routers/person.routes.js"
 import { bookRoutes } from "./src/routers/book.routes.js"
+import { categoryRoutes } from "./src/routers/category.routes.js"
 
 const app = express()
 app.use(express.json())
@@ -12,6 +13,7 @@ const PORT = process.env.PORT
 app.use("/api", userRoutes)
 app.use("/api", personRoutes)
 app.use("/api", bookRoutes)
+app.use("/api", categoryRoutes)
 
 app.listen(PORT, async () => {
     console.log("server prendido");

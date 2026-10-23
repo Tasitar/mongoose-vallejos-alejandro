@@ -2,8 +2,8 @@ import { booksModel } from "../models/book.model.js";
 
 export const createBook = async (req, res) => {
     try {
-        const { bookname, synopsis } = req.body;
-        const newBook = await booksModel.create({ bookname, synopsis });
+        const { bookname, synopsis,category } = req.body;
+        const newBook = await booksModel.create({ bookname, synopsis,category });
 
         return res.status(201).json({
             msg: "Se creó el libro correctamente",
