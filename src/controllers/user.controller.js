@@ -1,5 +1,4 @@
 import { UserModel } from "../models/user.model.js";
-import { userRoutes } from "../routers/user.routes.js";
 
 export const createUser = async (req, res) => {
     try {
