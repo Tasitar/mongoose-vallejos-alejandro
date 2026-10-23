@@ -2,9 +2,9 @@ import { UserModel } from "../models/user.model.js";
 
 export const createUser = async (req, res) => {
     try {
-        const {username, email, password} = req.body;
+        const {username, email, password, person} = req.body;
 
-        const newUser = await UserModel.create({username, email, password}
+        const newUser = await UserModel.create({username, email, password, person}
         );
 
         return res.status(201).json({
@@ -24,7 +24,7 @@ export const createUser = async (req, res) => {
 
 export const getAllUser = async (req, res) => {
     try {
-        const users = await UserModel.find()
+        const users = await UserModel.find().populate("person")
 
             return res.status(201).json({
                 data: users
@@ -44,7 +44,7 @@ export const getUserById = async (req, res) => {
     try {
            const { id } = req.params
         
-           const userID = await UserModel.findById(id)
+           const userID = await UserModel.findById(id).populate("person")
            
            return res.status(201).json({
             data: userID
