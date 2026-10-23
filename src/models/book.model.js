@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, Types } from "mongoose";
 
 const booksSchema = new Schema(
     {
@@ -10,13 +10,13 @@ const booksSchema = new Schema(
             type: String,
             required: true,
         },
-        category:
-             [
-                {
-                    type: Types.ObjectId,
-                    ref: "Category",
-                }
-            ]
-    }
-)
-export const booksModel = model("Books", booksSchema)
+        category: [
+            {
+                type: Types.ObjectId,
+                ref: "Category",
+            },
+        ],
+    },
+);
+
+export const booksModel = model("Books", booksSchema);
